@@ -1,0 +1,719 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register with us</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+
+    <!-- signup session -->
+
+    <div class="signupdiv container my-3 border col-12 col-md-8 col-lg-8" id="signupdiv">
+        <h1 class="text-center my-3">SIGN UP</h1>
+        <label for="fname" class="form-label">First Name</label>
+        <input class="form-control form-control-lg" type="text" id="fname" placeholder="First name">
+        <div id="fnameval" class="mb-2">
+        </div>
+
+        <label for="lname" class="form-label">Last Name</label>
+        <input class="form-control form-control-lg" type="text" id="lname" placeholder="last name">
+        <div class="   mb-2" id="lnameval">
+        </div>
+
+        <label for="email" class="form-label">Email</label>
+        <input class="form-control form-control-lg" type="email" id="email" placeholder="Input mail here">
+        <div class="   mb-2" id="emailval">
+        </div>
+
+        <label for="pswd" class="form-label">Password</label>
+        <input class="form-control form-control-lg" type="text" id="pswd" placeholder="Input password Here">
+        <div class="   mb-2" id="pasval">
+        </div>
+
+        <label for="cpswd" class="form-label">Confirm Password</label>
+        <input class="form-control form-control-lg" type="text" id="cpswd" placeholder="Input password Here">
+        <div class="   mb-2" id="cpassval">
+        </div>
+
+        <button onclick="sign()" class="btn btn-primary my-3 container p-2 ">Signup</button>
+        <p class="text-center">if you have an account? <span id="spans"><a href="#" id="login">Login</a></span></p>
+    </div>
+
+
+
+
+    <!-- login session -->
+
+
+    <div id="logindiv" class=" container my-3 border col-12 col-md-8 col-lg-8 ">
+        <h1 class="text-center my-3">LOGIN</h1>
+
+        <label for="loginemail" class="form-label">Email</label>
+        <input class="form-control form-control-lg" type="email" id="loginemail" placeholder="Input mail here">
+        <div class="   mb-2" id="loginemailval">
+        </div>
+
+        <label for="loginpswd" class="form-label">Password</label>
+        <input class="form-control form-control-lg" type="text" id="loginpswd" placeholder="Input password Here">
+        <div class="   mb-2" id="loginpasval">
+        </div>
+
+        <button onclick="Login()" class="btn btn-primary my-3 container p-3 ">Login</button>
+        <p class="text-center">if you dont have an account? <span id="spans"><a href="#" id="sign">Sign</a></span></p>
+    </div>
+
+    <div class="modal fade" id="userInfoModal" tabindex="-1" role="dialog" aria-labelledby="userInfoModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="userInfoModalLabel">Welcome! Please Enter Your Information</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form id="userInfoForm">
+                        <div class="form-group">
+                            <label for="userName">Name</label>
+                            <input type="text" class="form-control" id="userName" placeholder="Enter your name"
+                                required>
+                        </div>
+                        <div class="form-group">
+                            <label for="userEmail">Email address</label>
+                            <input type="email" class="form-control" id="userEmail" placeholder="Enter your email"
+                                required>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" id="saveUserInfo">Save</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- membership dashboard -->
+
+
+    <div id="part2">
+        <!-- Navigation Bar -->
+        <nav class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top">
+            <div class="container">
+                <a class="navbar-brand animate_animated animatepulse animate_infinite" href="members.html">
+                    <i class="bi bi-book"></i> Library
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav me-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#part2">Home</a>
+                        </li>
+                    </ul>
+                    <form class="d-flex" id="userSearchForm">
+                        <button class="btn btn-outline-light" type="submit"><a href="./index.html"
+                                style="color:  white; text-decoration: none;">Logout</a></button>
+                    </form>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Main Content -->
+        <div class="container mt-4">
+            <!-- User Profile Card -->
+            <div class="row mb-4">
+                <div class="col-md-4">
+                    <div class="card shadow-sm animate_animated animate_fadeIn">
+                        <div class="card-body text-center">
+                            <img id="memberimg" src="../image/Download User Profile Icon for free.jpeg"
+                                class="rounded-circle mb-3" alt="" style="width: 150px;">
+                            <h3 id="userNames"></h3>
+                            <button class="btn btn-primary" id="editProfileBtns">Edit Profile</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-8">
+                    <div class="card shadow-sm animate_animated animate_fadeIn">
+                        <div class="card-header bg-primary text-white">
+                            <h4 class="mb-0">My Library</h4>
+                        </div>
+                        <div class="card-body">
+                            <ul class="nav nav-tabs" id="userLibraryTabs" role="tablist">
+                                <li class="nav-item" role="presentation">
+                                    <button class="nav-link active" id="borrowed-tab" data-bs-toggle="tab"
+                                        data-bs-target="#borrowed" type="button" role="tab">Currently Borrowed <span
+                                            class="badge text-bg-secondary ml-2" id="amount">4</span></button>
+                                </li>
+                                <li class="nav-item" role="presentation">
+                                    <button class="nav-link" id="history-tab" data-bs-toggle="tab"
+                                        data-bs-target="#history" type="button" role="tab">Borrowing History</button>
+                                </li>
+                                <li class="nav-item" role="presentation">
+                                    <button class="nav-link" id="wishlist-tab" data-bs-toggle="tab"
+                                        data-bs-target="#wishlist" type="button" role="tab">Wishlist</button>
+                                </li>
+                            </ul>
+                            <div class="tab-content p-3" id="userLibraryTabContent">
+                                <div class="tab-pane fade show active" id="borrowed" role="tabpanel">
+                                    <div id="borrowedBooks" class="row">
+                                        <!-- Borrowed books will be loaded here -->
+                                        <p class="text-center text-muted">You haven't borrowed any books yet.</p>
+                                    </div>
+                                </div>
+                                <div class="tab-pane fade" id="history" role="tabpanel">
+                                    <div id="historyBooks" class="row">
+                                        <!-- History will be loaded here -->
+                                        <p class="text-center text-muted">No borrowing history found.</p>
+                                    </div>
+                                </div>
+                                <div class="tab-pane fade" id="wishlist" role="tabpanel">
+                                    <div id="wishlistBooks" class="row">
+                                        <!-- Wishlist will be loaded here -->
+                                        <p class="text-center text-muted">Your wishlist is empty.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Search Results Section -->
+            <div class="row mb-4">
+                <div class="col-12">
+                    <div class="card shadow-sm animate_animated animate_fadeIn">
+                        <div
+                            class="card-header bg-primary text-white d-flex justify-content-between align-items-center">
+                            <h4 class="mb-0">Book Catalog</h4>
+                            <div class="d-flex">
+                                <input class="form-control me-2" type="search" id="userSearchInput"
+                                    placeholder="Search books...">
+
+                                <button class="btn btn-light" id="refreshCatalog">
+                                    <i class="bi bi-arrow-clockwise"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="row" id="bookCatalog">
+                                <!-- Books will be loaded here dynamically -->
+                                <div class="d-flex justify-content-center" id="task"
+                                    style="display: flex; flex-wrap: wrap;">
+                                    <div class="spinner-border text-primary" role="status">
+                                        <span class="visually-hidden">Loading...</span>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="d-flex justify-content-center mt-4">
+                                <!-- <button class="btn btn-primary" id="loadMoreBtn">Load More</button> -->
+                                <div id="pagination" style="display: block;"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="toast-container position-fixed top-0 end-0 p-3">
+            <div id="bookToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+                <div class="toast-header">
+                  
+                    <svg class="bd-placeholder-img rounded me-2" width="20" height="20"
+                        xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice"
+                        focusable="false">
+                        <rect width="100%" height="100%" fill="#007aff"></rect>
+                    </svg>
+                    <strong class="me-auto">Your Book</strong>
+                    <small class="text-muted">just now</small>
+                    <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+                </div>
+                <div class="toast-body">
+                    Book action completed.
+                </div>
+            </div>
+        </div>
+
+
+        <div class="modal fade" id="userInfoModal" tabindex="-1" role="dialog" aria-labelledby="userInfoModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="userInfoModalLabel">Welcome! Please Enter Your Information</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="userInfoForm">
+                            <div class="form-group">
+                                <label for="userName">Name</label>
+                                <input type="text" class="form-control" id="userName" placeholder="Enter your name"
+                                    required>
+                            </div>
+                            <div class="form-group">
+                                <label for="userEmail">Email address</label>
+                                <input type="email" class="form-control" id="userEmail" placeholder="Enter your email"
+                                    required>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary" id="saveUserInfo">Save</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+
+    <!-- adminstration dashboard -->
+
+
+    <div id="part3">
+        <!-- Navigation Bar -->
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+            <div class="container">
+                <a class="navbar-brand animate_animated animatepulse animate_infinite" href="#">
+                    <i class="bi bi-book"></i> library
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav me-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="./admin.html">Home</a>
+                        </li>
+
+                    </ul>
+                    <div class="d-flex">
+                        <span class="text-light me-3"><i class="bi bi-person-circle"></i> Admin</span>
+                        <button class="btn btn-outline-danger" id="logoutBtn">Logout</button>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Main Content -->
+        <div class="container-fluid mt-4">
+            <div class="row">
+                <!-- Sidebar -->
+                <div class="col-md-3 col-lg-2">
+                    <div class="list-group shadow-sm animate_animated animate_fadeIn">
+                        <a href="#" class="list-group-item list-group-item-action active" id="dashboardNav">
+                            <i class="bi bi-speedometer2"></i> Dashboard
+                        </a>
+                        <a href="#" class="list-group-item list-group-item-action" id="booksNav">
+                            <i class="bi bi-book"></i> Books Management
+                        </a>
+                        <a href="#" class="list-group-item list-group-item-action" id="membersNav">
+                            <i class="bi bi-people"></i> Members Management
+                        </a>
+                        <a href="#" class="list-group-item list-group-item-action" id="borrowingsNav">
+                            <i class="bi bi-arrow-left-right"></i> Borrowings
+                        </a>
+
+                        <a href="#" class="list-group-item list-group-item-action" id="settingsNav">
+                            <i class="bi bi-gear"></i> Settings
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Main Panel -->
+                <div class="col-md-9 col-lg-10">
+                    <!-- Dashboard Section -->
+                    <div id="dashboardSection" class="animate_animated animate_fadeIn">
+                        <div class="row">
+                            <div class="col-12">
+                                <h2 class="border-bottom pb-2 mb-4">Dashboard</h2>
+                            </div>
+                        </div>
+                        <div class="row mb-4">
+                            <div class="col-md-3">
+                                <div class="card bg-primary text-white shadow-sm">
+                                    <div class="card-body">
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <div>
+                                                <h6 class="card-title">Total Books</h6>
+                                                <h2 class="card-text" id="totalBooks">15</h2>
+                                            </div>
+                                            <i class="bi bi-book fs-1"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="card bg-success text-white shadow-sm">
+                                    <div class="card-body">
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <div>
+                                                <h6 class="card-title">Members</h6>
+                                                <h2 class="card-text" id="totalMembers">376</h2>
+                                            </div>
+                                            <i class="bi bi-people fs-1"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="card bg-warning text-dark shadow-sm">
+                                    <div class="card-body">
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <div>
+                                                <h6 class="card-title">Books Borrowed</h6>
+                                                <h2 class="card-text" id="booksBorrowed">89</h2>
+                                            </div>
+                                            <i class="bi bi-arrow-right-circle fs-1"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="card bg-danger text-white shadow-sm">
+                                    <div class="card-body">
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <div>
+                                                <h6 class="card-title">Overdue</h6>
+                                                <h2 class="card-text" id="overdueBooks">12</h2>
+                                            </div>
+                                            <i class="bi bi-exclamation-circle fs-1"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="card shadow-sm mb-4">
+                                    <div class="card-header bg-light">
+                                        <h5 class="card-title mb-0">Recent Activities</h5>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="table-responsive">
+                                            <table class="table table-hover">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Date</th>
+                                                        <th>Member</th>
+                                                        <th>Email</th>
+                                                        <th>Borrowed Books</th>
+                                                        <th>Details</th>
+
+                                                    </tr>
+                                                </thead>
+                                                <tbody id="recentActivities" style="overflow: scroll;">
+                                                    <!-- Activities will be loaded here -->
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- <div class="col-md-4">
+                                <div class="card shadow-sm mb-4">
+                                    <div class="card-header bg-light">
+                                        <h5 class="card-title mb-0">Popular Books</h5>
+                                    </div>
+                                    <div class="card-body">
+                                        <ul class="list-group list-group-flush" id="popularBooks">
+                                             Popular books will be loaded here -->
+                                        <!-- </ul>
+                                    </div>
+                                </div>
+                            </div>  -->
+                        </div>
+                    </div>
+
+                    <!-- Books Management Section -->
+                    <div id="booksSection" class="d-none animate_animated animate_fadeIn">
+                        <div class="row mb-4">
+                            <div class="col-md-8">
+                                <h2 class="border-bottom pb-2">Books Management</h2>
+                            </div>
+                            <div class="col-md-4 text-end">
+                                <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addBookModal">
+                                    <i class="bi bi-plus-circle"></i> Add New Book
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="card shadow-sm">
+                            <div class="card-body">
+                                <div class="row mb-3">
+                                    <div class="col-md-6">
+                                        <div class="input-group">
+                                            <input type="text" class="form-control" id="bookSearchInput"
+                                                placeholder="Search books...">
+                                            <button class="btn btn-primary" id="bookSearchBtn">
+                                                <i class="bi bi-search"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <select class="form-select" id="bookFilterSelect">
+                                            <option value="all">All Categories</option>
+                                            <option value="fiction">Fiction</option>
+                                            <option value="non-fiction">Non-Fiction</option>
+                                            <option value="science">Science</option>
+                                            <option value="history">History</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <select class="form-select" id="bookSortSelect">
+                                            <option value="title">Sort by Title</option>
+                                            <option value="author">Sort by Author</option>
+                                            <option value="year">Sort by Year</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="table-responsive">
+                                    <table class="table table-hover">
+                                        <thead>
+                                            <tr>
+                                                <th>ID</th>
+                                                <th>Title</th>
+                                                <th>Author</th>
+                                                <th>Category</th>
+                                                <th>Status</th>
+                                                <th>Actions</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="booksTableBody">
+                                            <!-- Books will be loaded here -->
+                                        </tbody>
+                                    </table>
+                                </div>
+
+                                <nav aria-label="Books pagination">
+                                    <ul class="pagination justify-content-center" id="booksPagination">
+                                        <!-- Pagination will be generated here -->
+                                    </ul>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Members Management Section -->
+                    <div id="membersSection" class="d-none animate_animated animate_fadeIn">
+                        <div class="row mb-4">
+                            <div class="col-md-8">
+                                <h2 class="border-bottom pb-2">Members Management</h2>
+                            </div>
+                            <div class="col-md-4 text-end">
+                                <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addMemberModal">
+                                    <i class="bi bi-person-plus"></i> Add New Member
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="card shadow-sm">
+                            <div class="card-body">
+                                <div class="row mb-3">
+                                    <div class="col-md-6">
+                                        <div class="input-group">
+                                            <input type="text" class="form-control" id="memberSearchInput"
+                                                placeholder="Search members...">
+                                            <button class="btn btn-primary" id="memberSearchBtn">
+                                                <i class="bi bi-search"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <select class="form-select" id="memberStatusSelect">
+                                            <option value="all">All Status</option>
+                                            <option value="active">Active</option>
+                                            <option value="inactive">Inactive</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <select class="form-select" id="memberSortSelect">
+                                            <option value="name">Sort by Name</option>
+                                            <option value="id">Sort by ID</option>
+                                            <option value="joinDate">Sort by Join Date</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="table-responsive">
+                                    <table class="table table-hover">
+                                        <thead>
+                                            <tr>
+                                                <th>Date</th>
+                                                <th>Member</th>
+                                                <th>Email</th>
+                                                <th>Borrowed Books</th>
+                                                <th>Details</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="membersTableBody">
+                                            <!-- Members will be loaded here -->
+                                        </tbody>
+                                    </table>
+                                </div>
+
+                                <nav aria-label="Members pagination">
+                                    <ul class="pagination justify-content-center" id="membersPagination">
+                                        <!-- Pagination will be generated here -->
+                                    </ul>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Borrowings Management Section -->
+                    <div id="borrowingsSection" class="d-none animate_animated animate_fadeIn">
+                        <div class="row mb-4">
+                            <div class="col-md-8">
+                                <h2 class="border-bottom pb-2">Borrowings Management</h2>
+                            </div>
+                            <div class="col-md-4 text-end">
+                                <button class="btn btn-primary" data-bs-toggle="modal"
+                                    data-bs-target="#addBorrowingModal">
+                                    <i class="bi bi-plus-circle"></i> New Borrowing
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="card shadow-sm">
+                            <div class="card-body">
+                                <div class="row mb-3">
+                                    <div class="col-md-6">
+                                        <div class="input-group">
+                                            <input type="text" class="form-control" id="borrowingSearchInput"
+                                                placeholder="Search by book or member...">
+                                            <button class="btn btn-primary" id="borrowingSearchBtn">
+                                                <i class="bi bi-search"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <select class="form-select" id="borrowingStatusSelect">
+                                            <option value="all">All Status</option>
+                                            <option value="active">Active</option>
+                                            <option value="returned">Returned</option>
+                                            <option value="overdue">Overdue</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <select class="form-select" id="borrowingSortSelect">
+                                            <option value="date">Sort by Date</option>
+                                            <option value="dueDate">Sort by Due Date</option>
+                                            <option value="member">Sort by Member</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="table-responsive">
+                                    <table class="table table-hover">
+                                        <thead>
+                                            <tr>
+                                                <th>ID</th>
+                                                <th>Book</th>
+                                                <th>Member</th>
+                                                <th>Borrow Date</th>
+                                                <th>Due Date</th>
+                                                <th>Return Date</th>
+                                                <th>Status</th>
+                                                <th>Actions</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="borrowingsTableBody">
+                                            <!-- Borrowings will be loaded here -->
+                                        </tbody>
+                                    </table>
+                                </div>
+
+                                <nav aria-label="Borrowings pagination">
+                                    <ul class="pagination justify-content-center" id="borrowingsPagination">
+                                        <!-- Pagination will be generated here -->
+                                    </ul>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Settings Section -->
+                    <div id="settingsSection" class="d-none animate_animated animate_fadeIn">
+                        <h2 class="border-bottom pb-2 mb-4">Settings</h2>
+
+                        <div class="row">
+
+
+                            <div class="col-md-9">
+                                <!-- General Settings Panel -->
+                                <div class="card shadow-sm mb-4" id="generalSettings">
+                                    <div class="card-header bg-light">
+                                        <h5 class="card-title mb-0">General Settings</h5>
+                                    </div>
+                                    <div class="card-body">
+                                        <form id="generalSettingsForm">
+                                            <div class="mb-3">
+                                                <label for="libraryName" class="form-label">Library Name</label>
+                                                <input type="text" class="form-control" id="libraryName" value="">
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="contactEmail" class="form-label">Contact Email</label>
+                                                <input type="email" class="form-control" id="contactEmail" value="">
+                                            </div>
+
+                                            <div class="form-check form-switch mb-3">
+                                                <input class="form-check-input" type="checkbox" id="enableNotifications"
+                                                    checked>
+                                                <label class="form-check-label" for="enableNotifications">Enable Email
+                                                    Notifications</label>
+                                            </div>
+                                            <button type="submit" class="btn btn-primary">Save Settings</button>
+                                        </form>
+                                    </div>
+                                </div>
+
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+
+
+
+
+    <footer class="bg-dark text-white text-center py-4 mt-5">
+        <div class="container">
+            <p class="mb-0">© 2025 Library Management System. All rights reserved.</p>
+        </div>
+    </footer>
+
+
+
+    <script src="./dashboard.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
