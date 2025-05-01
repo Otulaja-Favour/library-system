@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library Management System</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top">
+        <div class="container">
+            <a class="navbar-brand animate_animated animatepulse animate_infinite" href="#">
+                <i class="bi bi-book"></i> Library Management System
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Contact</a>
+                    </li>
+                </ul>
+                
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container mt-4">
+        <div class="row">
+            <div class="col-12">
+                <div class="card shadow-lg animate_animated animate_fadeIn">
+                    <div class="card-body text-center">
+                        <h1 class="display-4">Welcome to the Library Management System</h1>
+                        <p class="lead">Discover thousands of books and manage your library experience</p>
+                        <hr class="my-4">
+                        <div class="d-grid gap-2 d-md-flex justify-content-md-center">
+                            <a href="./dashboard.html" class="btn btn-primary btn-lg animate_animated animate_pulse">Join now</a>
+                            <a href="./book.html" class="btn btn-secondary btn-lg animate_animated animate_pulse">Browse</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Featured Books Section -->
+        <h2 class="mt-5 mb-4 text-center">Featured Books</h2>
+        <div class="row" id="featuredBooks">
+            <!-- Featured books will be loaded here dynamically -->
+            <div class="d-flex justify-content-center">
+                <div  id="stories" class="container-fluid d-flex justify-content-center align">
+                  
+                    <span class="visually-hidden">Loading...</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Login to the Dashboard to proceed
+</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            Click on login to procced 
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary"><a href="./login.html" style="color: white; text-decoration: none;">Proceed</a></button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  
+  <section id="about">
+    <div class="container">
+        <div class="about-header">
+            <h1>About Our Library</h1>
+            <p>Welcome to our community hub of knowledge and learning. Discover our mission, history, and dedicated team.</p>
+        </div>
+        <div class="row">
+            <!-- Mission Statement -->
+            <div class="col-md-6">
+                <div class="mission-card">
+                    <h3>Our Mission</h3>
+                    <p>We empower our community through free access to knowledge, fostering literacy, curiosity, and lifelong learning.</p>
+                    <img src="https://via.placeholder.com/300x200?text=Library+Interior" alt="Library interior with bookshelves" class="img-fluid rounded">
+                </div>
+            </div>
+            <!-- Vision -->
+            <div class="col-md-6">
+                <div class="mission-card">
+                    <h3>Our Vision</h3>
+                    <p>A vibrant, inclusive space where everyone can explore, learn, and connect through the power of information.</p>
+                    <img src="https://via.placeholder.com/300x200?text=Community+Reading" alt="Community reading event" class="img-fluid rounded">
+                </div>
+            </div>
+        </div>
+        <!-- History Timeline -->
+        <div class="timeline">
+            <h3 class="text-center mb-4">Our History</h3>
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <h4>1900</h4>
+                    <p>Library founded with a small collection of 500 books.</p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <h4>1950</h4>
+                    <p>Expanded to include a children’s wing and public programs.</p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <h4>2000</h4>
+                    <p>Launched digital catalog and eBook services.</p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <h4>2025</h4>
+                    <p>Renovated main branch with modern tech and community spaces.</p>
+                </div>
+            </div>
+        </div>
+        <!-- Team -->
+        <div class="row">
+            <h3 class="text-center mb-4">Meet Our Team</h3>
+            <div class="col-md-4">
+                <div class="team-card text-center">
+                    <img src="https://via.placeholder.com/150?text=Librarian" alt="Head Librarian Jane Doe" class="rounded-circle mb-3">
+                    <h4>Jane Doe</h4>
+                    <p>Head Librarian</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="team-card text-center">
+                    <img src="https://via.placeholder.com/150?text=Assistant" alt="Assistant Librarian John Smith" class="rounded-circle mb-3">
+                    <h4>John Smith</h4>
+                    <p>Assistant Librarian</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="team-card text-center">
+                    <img src="https://via.placeholder.com/150?text=Coordinator" alt="Program Coordinator Sarah Lee" class="rounded-circle mb-3">
+                    <h4>Sarah Lee</h4>
+                    <p>Program Coordinator</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+ <!-- Contact Us Section -->
+ <section id="contact">
+    <div class="container">
+        <div class="contact-header">
+            <h2>Contact Us</h2>
+            <p>Reach out to us for inquiries, feedback, or to visit our branches.</p>
+        </div>
+        <div class="row">
+            <!-- Contact Form -->
+            <div class="col-md-6">
+                <div class="contact-form">
+                    <h3>Send Us a Message</h3>
+                    <form action="#" method="POST" aria-label="Contact form">
+                        <div class="mb-3">
+                            <label for="name" class="form-label">Name</label>
+                            <input type="text" class="form-control" id="name" name="name" required aria-required="true">
+                        </div>
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Email</label>
+                            <input type="email" class="form-control" id="email" name="email" required aria-required="true">
+                        </div>
+                        <div class="mb-3">
+                            <label for="message" class="form-label">Message</label>
+                            <textarea class="form-control" id="message" name="message" rows="5" required aria-required="true"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Send Message</button>
+                    </form>
+                </div>
+            </div>
+            <!-- Branch Info & Map -->
+            <div class="col-md-6">
+                <div class="branch-info">
+                    <h3>Main Branch</h3>
+                    <p><strong>Address:</strong> 123 Library Lane, Booktown, USA</p>
+                    <p><strong>Phone:</strong> (123) 456-7890</p>
+                    <p><strong>Email:</strong> info@library.org</p>
+                    <p><strong>Hours:</strong> Mon-Fri: 9 AM - 6 PM, Sat: 10 AM - 4 PM</p>
+                </div>
+                <div class="map-container">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3153.019587849805!2d-122.4194156846813!3d37.77492977975966!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8085808c5e5e5e5f%3A0x5e5e5e5e5e5e5e5e!2sSan%20Francisco%20Public%20Library!5e0!3m2!1sen!2sus!4v1634567890123!5m2!1sen!2sus" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" aria-label="Map of Main Branch"></iframe>
+                </div>
+                <div class="social-links text-center mt-3">
+                    <a href="#" aria-label="Follow us on Facebook"><i class="bi bi-facebook"></i></a>
+                    <a href="#" aria-label="Follow us on Twitter"><i class="bi bi-twitter"></i></a>
+                    <a href="#" aria-label="Follow us on Instagram"><i class="bi bi-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- Footer -->
+<footer class="bg-dark text-white text-center py-4 mt-5">
+    <div class="container">
+        <p class="mb-0">© 2025 Library Management System. All rights reserved.</p>
+    </div>
+</footer>
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js" integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq" crossorigin="anonymous"></script>
+    <script src="./script.js"></script>
+</body>
+
+</html>
