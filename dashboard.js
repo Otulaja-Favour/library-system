@@ -434,10 +434,15 @@ document.getElementById('booksBorrowed').innerHTML = borrowedBooks.length
         saveToLocal()
     
         document.getElementById('Profiles').innerHTML = `
-           <td>${value.date}</p>
+           <p>${value.date}</p>
           <h1>${value.fname} ${value.lname}</h1>
           <p>${value.email}</p>
         `
+        document.getElementById('adminpro').innerHTML = `
+        <p>${value.date}</p>
+       <h1>${value.fname} ${value.lname}</h1>
+       <p>${value.email}</p>
+     `
     
     
     
@@ -449,7 +454,7 @@ document.getElementById('booksBorrowed').innerHTML = borrowedBooks.length
           <td>${value.email}</td>
           <td>${borrowedBooks.length}</td>
           <td>
-            <button class="btn btn-success m-1" onclick="viewUser(${index})">View</button>
+            <button class="btn btn-success m-1" data-bs-toggle="modal" data-bs-target="#staticBackdrop" onclick="viewUser(${index})">View</button>
             <button class="btn btn-success m-1 " onclick="editUser(${index})">Edit</button>
             <button class="btn btn-success m-1" onclick="deleteUser(${index})">Delete</button>
           </td>
@@ -461,7 +466,7 @@ document.getElementById('booksBorrowed').innerHTML = borrowedBooks.length
           <td>${value.email}</td>
           <td>${borrowedBooks.length}</td>
           <td>
-            <button class="btn btn-success m-1" onclick="viewUser(${index})">View</button>
+            <button class="btn btn-success m-1" data-bs-toggle="modal" data-bs-target="#staticBackdrop" onclick="viewUser(${index})">View</button>
             <button class="btn btn-success m-1 " onclick="editUser(${index})">Edit</button>
             <button class="btn btn-success m-1" onclick="deleteUser(${index})">Delete</button>
           </td>
