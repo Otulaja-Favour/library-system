@@ -139,13 +139,13 @@ function Login() {
 
     let foundData = savedUsers.find(user => user.email === loginemail.value && user.pswd === loginpswd.value)
     if (foundData) {
-        alert('okay')
+        alert('Login Successfully')
         document.getElementById('part2').style.display = 'block'
         document.getElementById('logindiv').style.display = 'none'
 
         return
     } else {
-        // alert('6ttopss')
+        alert('Invalid Email or Password')
     }
 
 }
@@ -211,16 +211,7 @@ document.getElementById('booksBorrowed').innerHTML = borrowedBooks.length
     async function gettingData() {
         try {
 
-            if (books[0][0].length > 0) {
-                allBooks = books; // Use flat array from localStorage
-                document.getElementById('totalBooks').innerHTML = allBooks.length;
-                setupPagination(allBooks);
-                displayPage(allBooks, currentPage);
-                displayBorrowedBooks();
-                return;
-            }
-            console.log(books);
-
+          
 
             const response = await fetch("https://openlibrary.org/search.json?q=book");
             const result = await response.json();
@@ -228,9 +219,6 @@ document.getElementById('booksBorrowed').innerHTML = borrowedBooks.length
             console.log(result.docs);
             books.push([result.docs])
             saveBooks()
-
-            // showRandomBook(); // Initial display
-            // setInterval(showRandomBook, 3000);
 
             setupPagination(allBooks);
             displayPage(allBooks, currentPage);
@@ -442,6 +430,17 @@ document.getElementById('booksBorrowed').innerHTML = borrowedBooks.length
     //showing admin the total stored books 
 
     savedUsersname.forEach((value, index) =>{
+        document.getElementById('userNames').innerHTML = `Welcome ${value.fname}`
+        saveToLocal()
+    
+        document.getElementById('Profiles').innerHTML = `
+           <td>${value.date}</p>
+          <h1>${value.fname} ${value.lname}</h1>
+          <p>${value.email}</p>
+        `
+    
+    
+    
         let borrowedBooks = JSON.parse(localStorage.getItem(`borrowedBooks_${value.email}`)) || [];
         const row = document.createElement('tr')
         row.innerHTML = `
@@ -474,22 +473,11 @@ document.getElementById('booksBorrowed').innerHTML = borrowedBooks.length
 
 //showing the user their name so they can feel alive
 
-    document.getElementById('userNames').innerHTML = `Welcome ${savedUsersname[0].fname}`
-    saveToLocal()
-
-    document.getElementById('editProfileBtns').addEventListener('click', () => {
-        alert('cannot edit for now')
-    })
-
-
-
+   
 
 
 }
 
-
-{
-}
 
 
 

@@ -139,10 +139,32 @@
                             <img id="memberimg" src="../image/Download User Profile Icon for free.jpeg"
                                 class="rounded-circle mb-3" alt="" style="width: 150px;">
                             <h3 id="userNames"></h3>
-                            <button class="btn btn-primary" id="editProfileBtns">Edit Profile</button>
+                            <button class="btn btn-primary" id="editProfileBtns" data-bs-toggle="modal" data-bs-target="#exampleModal">Edit Profile</button>
                         </div>
                     </div>
                 </div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body" id="Profiles">
+          ...
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
                 <div class="col-md-8">
                     <div class="card shadow-sm animate_animated animate_fadeIn">
                         <div class="card-header bg-primary text-white">
