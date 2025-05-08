@@ -139,14 +139,14 @@
                             <img id="memberimg" src="../image/Download User Profile Icon for free.jpeg"
                                 class="rounded-circle mb-3" alt="" style="width: 150px;">
                             <h3 id="userNames"></h3>
-                            <button class="btn btn-primary" id="editProfileBtns" data-bs-toggle="modal" data-bs-target="#exampleModal">Edit Profile</button>
+                            <button class="btn btn-primary" id="editProfileBtns">Edit Profile</button>
                         </div>
                     </div>
                 </div>
 
 
 <!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<!-- <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
@@ -162,7 +162,7 @@
         </div>
       </div>
     </div>
-  </div>
+  </div> -->
 
 
                 <div class="col-md-8">
@@ -178,13 +178,11 @@
                                             class="badge text-bg-secondary ml-2" id="amount">4</span></button>
                                 </li>
                                 <li class="nav-item" role="presentation">
-                                    <button class="nav-link" id="history-tab" data-bs-toggle="tab"
-                                        data-bs-target="#history" type="button" role="tab">Borrowing History</button>
+                                    <button class="nav-link" id="historyBooksContainer" data-bs-toggle="tab"
+                                        data-bs-target="#history" type="button" role="tab">Borrowing History<span
+                                        class="badge text-bg-secondary ml-2" id="hamount">4</span></button>
                                 </li>
-                                <li class="nav-item" role="presentation">
-                                    <button class="nav-link" id="wishlist-tab" data-bs-toggle="tab"
-                                        data-bs-target="#wishlist" type="button" role="tab">Wishlist</button>
-                                </li>
+                               
                             </ul>
                             <div class="tab-content p-3" id="userLibraryTabContent">
                                 <div class="tab-pane fade show active" id="borrowed" role="tabpanel">
@@ -412,8 +410,8 @@
                                     <div class="card-body">
                                         <div class="d-flex justify-content-between align-items-center">
                                             <div>
-                                                <h6 class="card-title">Overdue</h6>
-                                                <h2 class="card-text" id="overdueBooks">12</h2>
+                                                <h6 class="card-title">Active users</h6>
+                                                <h2 class="card-text" id="activedueBooks">12</h2>
                                             </div>
                                             <i class="bi bi-exclamation-circle fs-1"></i>
                                         </div>
@@ -436,8 +434,8 @@
                                                         <th>Date</th>
                                                         <th>Member</th>
                                                         <th>Email</th>
-                                                        <th>Borrowed Books</th>
                                                         <th>Details</th>
+                                                        <th>Borrowed Books</th>
 
                                                     </tr>
                                                 </thead>
@@ -465,47 +463,17 @@
                     </div>
 
                     <!-- Books Management Section -->
-                    <div id="booksSection" class="d-none animate_animated animate_fadeIn">
+                    <div id="booksSection" class=" animate_animated animate_fadeIn d-none" >
                         <div class="row mb-4">
                             <div class="col-md-8">
                                 <h2 class="border-bottom pb-2">Books Management</h2>
                             </div>
-                            <div class="col-md-4 text-end">
-                                <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addBookModal">
-                                    <i class="bi bi-plus-circle"></i> Add New Book
-                                </button>
-                            </div>
+                            
                         </div>
 
                         <div class="card shadow-sm">
                             <div class="card-body">
-                                <div class="row mb-3">
-                                    <div class="col-md-6">
-                                        <div class="input-group">
-                                            <input type="text" class="form-control" id="bookSearchInput"
-                                                placeholder="Search books...">
-                                            <button class="btn btn-primary" id="bookSearchBtn">
-                                                <i class="bi bi-search"></i>
-                                            </button>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-3">
-                                        <select class="form-select" id="bookFilterSelect">
-                                            <option value="all">All Categories</option>
-                                            <option value="fiction">Fiction</option>
-                                            <option value="non-fiction">Non-Fiction</option>
-                                            <option value="science">Science</option>
-                                            <option value="history">History</option>
-                                        </select>
-                                    </div>
-                                    <div class="col-md-3">
-                                        <select class="form-select" id="bookSortSelect">
-                                            <option value="title">Sort by Title</option>
-                                            <option value="author">Sort by Author</option>
-                                            <option value="year">Sort by Year</option>
-                                        </select>
-                                    </div>
-                                </div>
+                               
 
                                 <div class="table-responsive">
                                     <table class="table table-hover">
@@ -516,7 +484,7 @@
                                                 <th>Author</th>
                                                 <th>Category</th>
                                                 <th>Status</th>
-                                                <th>Actions</th>
+                                                <th>Copies</th>
                                             </tr>
                                         </thead>
                                         <tbody id="booksTableBody">
@@ -535,45 +503,17 @@
                     </div>
 
                     <!-- Members Management Section -->
-                    <div id="membersSection" class="d-none animate_animated animate_fadeIn">
+                    <div id="membersSection" class=" animate_animated animate_fadeIn d-none">
                         <div class="row mb-4">
                             <div class="col-md-8">
                                 <h2 class="border-bottom pb-2">Members Management</h2>
                             </div>
-                            <div class="col-md-4 text-end">
-                                <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addMemberModal">
-                                    <i class="bi bi-person-plus"></i> Add New Member
-                                </button>
-                            </div>
+                           
                         </div>
 
                         <div class="card shadow-sm">
                             <div class="card-body">
-                                <div class="row mb-3">
-                                    <div class="col-md-6">
-                                        <div class="input-group">
-                                            <input type="text" class="form-control" id="memberSearchInput"
-                                                placeholder="Search members...">
-                                            <button class="btn btn-primary" id="memberSearchBtn">
-                                                <i class="bi bi-search"></i>
-                                            </button>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-3">
-                                        <select class="form-select" id="memberStatusSelect">
-                                            <option value="all">All Status</option>
-                                            <option value="active">Active</option>
-                                            <option value="inactive">Inactive</option>
-                                        </select>
-                                    </div>
-                                    <div class="col-md-3">
-                                        <select class="form-select" id="memberSortSelect">
-                                            <option value="name">Sort by Name</option>
-                                            <option value="id">Sort by ID</option>
-                                            <option value="joinDate">Sort by Join Date</option>
-                                        </select>
-                                    </div>
-                                </div>
+                                
 
                                 <div class="table-responsive">
                                     <table class="table table-hover">
@@ -582,8 +522,9 @@
                                                 <th>Date</th>
                                                 <th>Member</th>
                                                 <th>Email</th>
-                                                <th>Borrowed Books</th>
+                                                <th>Online</th>
                                                 <th>Details</th>
+                                                <th>Borrowed Books</th>
                                             </tr>
                                         </thead>
                                         <tbody id="membersTableBody">
@@ -602,58 +543,26 @@
                     </div>
 
                     <!-- Borrowings Management Section -->
-                    <div id="borrowingsSection" class="d-none animate_animated animate_fadeIn">
+                    <div id="borrowingsSection" class=" animate_animated animate_fadeIn d-none">
                         <div class="row mb-4">
                             <div class="col-md-8">
                                 <h2 class="border-bottom pb-2">Borrowings Management</h2>
                             </div>
-                            <div class="col-md-4 text-end">
-                                <button class="btn btn-primary" data-bs-toggle="modal"
-                                    data-bs-target="#addBorrowingModal">
-                                    <i class="bi bi-plus-circle"></i> New Borrowing
-                                </button>
-                            </div>
+                           
                         </div>
 
                         <div class="card shadow-sm">
                             <div class="card-body">
-                                <div class="row mb-3">
-                                    <div class="col-md-6">
-                                        <div class="input-group">
-                                            <input type="text" class="form-control" id="borrowingSearchInput"
-                                                placeholder="Search by book or member...">
-                                            <button class="btn btn-primary" id="borrowingSearchBtn">
-                                                <i class="bi bi-search"></i>
-                                            </button>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-3">
-                                        <select class="form-select" id="borrowingStatusSelect">
-                                            <option value="all">All Status</option>
-                                            <option value="active">Active</option>
-                                            <option value="returned">Returned</option>
-                                            <option value="overdue">Overdue</option>
-                                        </select>
-                                    </div>
-                                    <div class="col-md-3">
-                                        <select class="form-select" id="borrowingSortSelect">
-                                            <option value="date">Sort by Date</option>
-                                            <option value="dueDate">Sort by Due Date</option>
-                                            <option value="member">Sort by Member</option>
-                                        </select>
-                                    </div>
-                                </div>
+                              
 
                                 <div class="table-responsive">
                                     <table class="table table-hover">
                                         <thead>
                                             <tr>
-                                                <th>ID</th>
-                                                <th>Book</th>
                                                 <th>Member</th>
+                                                <th>Title</th>
+                                                <th>Author</th>
                                                 <th>Borrow Date</th>
-                                                <th>Due Date</th>
-                                                <th>Return Date</th>
                                                 <th>Status</th>
                                                 <th>Actions</th>
                                             </tr>
@@ -674,7 +583,7 @@
                     </div>
 
                     <!-- Settings Section -->
-                    <div id="settingsSection" class="d-none animate_animated animate_fadeIn">
+                    <div id="settingsSection" class=" animate_animated animate_fadeIn d-none">
                         <h2 class="border-bottom pb-2 mb-4">Settings</h2>
 
                         <div class="row">
@@ -697,13 +606,12 @@
                                                 <input type="email" class="form-control" id="contactEmail" value="">
                                             </div>
 
-                                            <div class="form-check form-switch mb-3">
-                                                <input class="form-check-input" type="checkbox" id="enableNotifications"
-                                                    checked>
-                                                <label class="form-check-label" for="enableNotifications">Enable Email
-                                                    Notifications</label>
+                                            <div class="form-check form-switch">
+                                                <input class="form-check-input" type="checkbox" id="darkModeToggle" onchange="toggleDarkMode()">
+                                                <label class="form-check-label" for="darkModeToggle">Dark Mode</label>
                                             </div>
                                             <button type="submit" class="btn btn-primary">Save Settings</button>
+                                            <button onclick="clearLocalStorage()" class="btn btn-danger">Clear Local Storage</button>
                                         </form>
                                     </div>
                                 </div>
@@ -750,10 +658,10 @@
 
 
 
-    <script src="dashboard.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq"
-        crossorigin="anonymous"></script>
+    integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq"
+    crossorigin="anonymous"></script>
+    <script src="./dashboard.js"></script>
 </body>
 
 </html>

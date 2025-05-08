@@ -21,6 +21,27 @@
     overflow: scroll !important;
     height: 200px;
 }
+.dark-mode {
+  background-color: #121212;
+  color: #ffffff;
+}
+
+.dark-mode .card {
+  background-color: #1e1e1e;
+  color: #ffffff;
+}
+
+.dark-mode .btn {
+  background-color: #333333;
+  color: #ffffff;
+}
+
+.dark-mode input, .dark-mode textarea {
+  background-color: #1e1e1e;
+  color: #ffffff;
+  border: 1px solid #444444;
+}
+
 
 body {
   font-family: 'Poppins', sans-serif;

@@ -1,0 +1,246 @@
+{
+    "novels": [
+      {
+        "id": 1,
+        "title": "Pride and Prejudice",
+        "author": "Jane Austen",
+        "genre": "Romance",
+        "status": "Available",
+        "image": "https://www.clipartmax.com/png/small/157-1575987_pride-and-prejudice-book-cover.png"
+      },
+      {
+        "id": 2,
+        "title": "1984",
+        "author": "George Orwell",
+        "genre": "Dystopian",
+        "status": "Borrowed",
+        "image": "https://images-na.ssl-images-amazon.com/images/I/41y9E4Fz5VL._SX324_BO1,204,203,200_.jpg"
+      },
+      {
+        "id": 3,
+        "title": "The Great Gatsby",
+        "author": "F. Scott Fitzgerald",
+        "genre": "Literary Fiction",
+        "status": "Available",
+        "image": "https://images-na.ssl-images-amazon.com/images/I/41M9e6N2YJL._SX320_BO1,204,203,200_.jpg"
+      },
+      {
+        "id": 4,
+        "title": "To Kill a Mockingbird",
+        "author": "Harper Lee",
+        "genre": "Literary Fiction",
+        "status": "Available",
+        "image": "https://www.pngkit.com/png/detail/53-534920_to-kill-a-mockingbird-book-cover.png"
+      },
+      {
+        "id": 5,
+        "title": "Brave New World",
+        "author": "Aldous Huxley",
+        "genre": "Dystopian",
+        "status": "Borrowed",
+        "image": "https://images-na.ssl-images-amazon.com/images/I/41DNuJfahyL._SX320_BO1,204,203,200_.jpg"
+      },
+      {
+        "id": 6,
+        "title": "Jane Eyre",
+        "author": "Charlotte Brontë",
+        "genre": "Romance",
+        "status": "Available",
+        "image": "https://images-na.ssl-images-amazon.com/images/I/41D9NDiSzSL._SX331_BO1,204,203,200_.jpg"
+      },
+      {
+        "id": 7,
+        "title": "The Catcher in the Rye",
+        "author": "J.D. Salinger",
+        "genre": "Literary Fiction",
+        "status": "Available",
+        "image": "https://images-na.ssl-images-amazon.com/images/I/41zoxjP1N-L._SX277_BO1,204,203,200_.jpg"
+      },
+      {
+        "id": 8,
+        "title": "Wuthering Heights",
+        "author": "Emily Brontë",
+        "genre": "Gothic Romance",
+        "status": "Borrowed",
+        "image": "https://images-na.ssl-images-amazon.com/images/I/41zoxjP1N-L._SX277_BO1,204,203,200_.jpg"
+      },
+      {
+        "id": 9,
+        "title": "Lord of the Flies",
+        "author": "William Golding",
+        "genre": "Allegorical Fiction",
+        "status": "Available",
+        "image": "https://images-na.ssl-images-amazon.com/images/I/41j2Jz3G9LL._SX324_BO1,204,203,200_.jpg"
+      },
+      {
+        "id": 10,
+        "title": "Moby-Dick",
+        "author": "Herman Melville",
+        "genre": "Adventure",
+        "status": "Available",
+        "image": "https://images-na.ssl-images-amazon.com/images/I/41Nwn2e1xLL._SX331_BO1,204,203,200_.jpg"
+      },
+      {
+        "id": 11,
+        "title": "Animal Farm",
+        "author": "George Orwell",
+        "genre": "Allegorical Fiction",
+        "status": "Available",
+        "image": "https://images-na.ssl-images-amazon.com/images/I/41+eK8zBwQL._SX331_BO1,204,203,200_.jpg"
+      },
+      {
+        "id": 12,
+        "title": "The Hobbit",
+        "author": "J.R.R. Tolkien",
+        "genre": "Fantasy",
+        "status": "Borrowed",
+        "image": "https://images-na.ssl-images-amazon.com/images/I/41aQPTCmeVL._SX331_BO1,204,203,200_.jpg"
+      },
+      {
+        "id": 13,
+        "title": "Fahrenheit 451",
+        "author": "Ray Bradbury",
+        "genre": "Dystopian",
+        "status": "Available",
+        "image": "https://images-na.ssl-images-amazon.com/images/I/41cl8bY5hLL._SX324_BO1,204,203,200_.jpg"
+      },
+      {
+        "id": 14,
+        "title": "Sense and Sensibility",
+        "author": "Jane Austen",
+        "genre": "Romance",
+        "status": "Available",
+        "image": "https://images-na.ssl-images-amazon.com/images/I/41ZxjP1N-L._SX331_BO1,204,203,200_.jpg"
+      },
+      {
+        "id": 15,
+        "title": "The Picture of Dorian Gray",
+        "author": "Oscar Wilde",
+        "genre": "Gothic Fiction",
+        "status": "Borrowed",
+        "image": "https://images-na.ssl-images-amazon.com/images/I/41zoxjP1N-L._SX331_BO1,204,203,200_.jpg"
+      },
+      {
+        "id": 16,
+        "title": "Crime and Punishment",
+        "author": "Fyodor Dostoevsky",
+        "genre": "Philosophical Fiction",
+        "status": "Available",
+        "image": "https://images-na.ssl-images-amazon.com/images/I/41D9NDiSzSL._SX331_BO1,204,203,200_.jpg"
+      },
+      {
+        "id": 17,
+        "title": "The Brothers Karamazov",
+        "author": "Fyodor Dostoevsky",
+        "genre": "Philosophical Fiction",
+        "status": "Available",
+        "image": "https://images-na.ssl-images-amazon.com/images/I/41DNuJfahyL._SX331_BO1,204,203,200_.jpg"
+      },
+      {
+        "id": 18,
+        "title": "Dracula",
+        "author": "Bram Stoker",
+        "genre": "Horror",
+        "status": "Borrowed",
+        "image": "https://images-na.ssl-images-amazon.com/images/I/41Nwn2e1xLL._SX331_BO1,204,203,200_.jpg"
+      },
+      {
+        "id": 19,
+        "title": "Frankenstein",
+        "author": "Mary Shelley",
+        "genre": "Horror",
+        "status": "Available",
+        "image": "https://images-na.ssl-images-amazon.com/images/I/41j2Jz3G9LL._SX331_BO1,204,203,200_.jpg"
+      },
+      {
+        "id": 20,
+        "title": "The Scarlet Letter",
+        "author": "Nathaniel Hawthorne",
+        "genre": "Historical Fiction",
+        "status": "Available",
+        "image": "https://images-na.ssl-images-amazon.com/images/I/41cl8bY5hLL._SX331_BO1,204,203,200_.jpg"
+      },
+      {
+        "id": 21,
+        "title": "A Tale of Two Cities",
+        "author": "Charles Dickens",
+        "genre": "Historical Fiction",
+        "status": "Borrowed",
+        "image": "https://images-na.ssl-images-amazon.com/images/I/41+eK8zBwQL._SX331_BO1,204,203,200_.jpg"
+      },
+      {
+        "id": 22,
+        "title": "Great Expectations",
+        "author": "Charles Dickens",
+        "genre": "Literary Fiction",
+        "status": "Available",
+        "image": "https://images-na.ssl-images-amazon.com/images/I/41aQPTCmeVL._SX331_BO1,204,203,200_.jpg"
+      },
+      {
+        "id": 23,
+        "title": "The Lord of the Rings",
+        "author": "J.R.R. Tolkien",
+        "genre": "Fantasy",
+        "status": "Borrowed",
+        "image": "https://images-na.ssl-images-amazon.com/images/I/41zoxjP1N-L._SX331_BO1,204,203,200_.jpg"
+      },
+      {
+        "id": 24,
+        "title": "Catch-22",
+        "author": "Joseph Heller",
+        "genre": "Satirical Fiction",
+        "status": "Available",
+        "image": "https://images-na.ssl-images-amazon.com/images/I/41D9NDiSzSL._SX331_BO1,204,203,200_.jpg"
+      },
+      {
+        "id": 25,
+        "title": "Slaughterhouse-Five",
+        "author": "Kurt Vonnegut",
+        "genre": "Science Fiction",
+        "status": "Available",
+        "image": "https://images-na.ssl-images-amazon.com/images/I/41DNuJfahyL._SX331_BO1,204,203,200_.jpg"
+      },
+      {
+        "id": 26,
+        "title": "One Hundred Years of Solitude",
+        "author": "Gabriel García Márquez",
+        "genre": "Magical Realism",
+        "status": "Borrowed",
+        "image": "https://images-na.ssl-images-amazon.com/images/I/41Nwn2e1xLL._SX331_BO1,204,203,200_.jpg"
+      },
+      {
+        "id": 27,
+        "title": "Beloved",
+        "author": "Toni Morrison",
+        "genre": "Literary Fiction",
+        "status": "Available",
+        "image": "https://images-na.ssl-images-amazon.com/images/I/41W9pW8YXHL._SY344_BO1,204,203,200_.jpg"
+      },
+      
+      {
+        "id": 28,
+        "title": "The Old Man and the Sea",
+        "author": "Ernest Hemingway",
+        "genre": "Literary Fiction",
+        "status": "Available",
+        "image": "https://images-na.ssl-images-amazon.com/images/I/41MZ5mWvJHL._SX320_BO1,204,203,200_.jpg"
+      },
+      {
+        "id": 29,
+        "title": "The Alchemist",
+        "author": "Paulo Coelho",
+        "genre": "Adventure Fiction",
+        "status": "Borrowed",
+        "image": "https://images-na.ssl-images-amazon.com/images/I/41xShlnTZTL._SX331_BO1,204,203,200_.jpg"
+      },
+      {
+        "id": 30,
+        "title": "Gone with the Wind",
+        "author": "Margaret Mitchell",
+        "genre": "Historical Fiction",
+        "status": "Available",
+        "image": "https://images-na.ssl-images-amazon.com/images/I/51o9iEyrUdL._SX330_BO1,204,203,200_.jpg"
+      }
+    ]
+}
+  
