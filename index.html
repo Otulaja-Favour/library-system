@@ -1,0 +1,1292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Otulaja Favour - Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #6366f1;
+            --secondary-color: #8b5cf6;
+            --accent-color: #06b6d4;
+            --text-color: #1f2937;
+            --bg-color: #ffffff;
+            --card-bg: #f8fafc;
+            --shadow: rgba(0, 0, 0, 0.1);
+            --gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        [data-theme="dark"] {
+            --text-color: #e5e7eb;
+            --bg-color: #0f172a;
+            --card-bg: #1e293b;
+            --shadow: rgba(0, 0, 0, 0.3);
+            --gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: var(--bg-color);
+            color: var(--text-color);
+            overflow-x: hidden;
+            cursor: none;
+            transition: all 0.3s ease;
+            min-height: 100vh;
+        }
+
+        /* Custom Cursor */
+        .cursor {
+            position: fixed;
+            width: 20px;
+            height: 20px;
+            background: var(--primary-color);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 9999;
+            transition: transform 0.1s;
+            mix-blend-mode: difference;
+        }
+
+        .cursor-follower {
+            position: fixed;
+            width: 40px;
+            height: 40px;
+            border: 2px solid var(--primary-color);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 9998;
+            transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            opacity: 0.5;
+        }
+
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 1rem 2rem;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            z-index: 1000;
+            animation: slideDown 0.8s ease;
+        }
+
+        [data-theme="dark"] header {
+            background: rgba(15, 23, 42, 0.8);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: 500;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background: var(--primary-color);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .theme-toggle {
+            background: none;
+            border: 2px solid var(--primary-color);
+            color: var(--primary-color);
+            padding: 0.5rem;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 1.2rem;
+        }
+
+        .theme-toggle:hover {
+            background: var(--primary-color);
+            color: white;
+            transform: rotate(180deg);
+        }
+
+        /* Sections */
+        section {
+            width: 100%;
+            padding: 5rem 2rem;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            margin: 0;
+            clear: both;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: fadeInUp 0.8s ease;
+        }
+
+        /* Hero Section */
+        #home.hero {
+            height: 100vh;
+            background: var(--gradient);
+            position: relative;
+            overflow: hidden;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            width: 200%;
+            height: 200%;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="white" opacity="0.1"/><circle cx="75" cy="75" r="1" fill="white" opacity="0.1"/><circle cx="50" cy="10" r="1" fill="white" opacity="0.1"/><circle cx="10" cy="60" r="1" fill="white" opacity="0.1"/><circle cx="90" cy="40" r="1" fill="white" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+            animation: float 10s ease-in-out infinite;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 70%);
+            animation: pulseGlow 4s ease-in-out infinite;
+        }
+
+        .hero-content {
+            text-align: center;
+            color: white;
+            z-index: 2;
+            animation: fadeInUp 1s ease, bounceIn 1.5s ease-in-out 1s both;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            animation: slideInLeft 1s ease 0.2s both, rotateIn 2s ease-in-out infinite;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            animation: slideInRight 1s ease 0.4s both, fadePulse 3s ease-in-out infinite;
+            text-shadow: 0 0 5px rgba(255, 255, 255, 0.3);
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background: rgba(255, 255, 255, 0.2);
+            border: 2px solid white;
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            animation: bounceIn 1s ease 0.6s both, scalePulse 2s ease-in-out infinite;
+        }
+
+        .cta-button:hover {
+            background: white;
+            color: var(--primary-color);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        /* About Section */
+        .about-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            width: 100%;
+            max-width: 1200px;
+            animation: slideInUp 0.8s ease;
+        }
+
+        .profile-image {
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            background: var(--gradient);
+            background-image: url('data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEAAAAAAAD/2wBDAAoHBwkHBgoJCAkKLQoMDwwQEB8cGxwaHB0bIgoVIR0hISEhMB0aJCkXGx4jJCAjKCIrLC0r/2wBDAQoJCQsNEB0xMC0rKCUoKSg0ODQwPDg0NDhIWFx4jJCAjKCIrLC0rLC0rLC0rLC0rLC0rLC0rLC0rLC0rLC0rLC0rLC0rLC0rLC0rLC0rLC0rLC0rL/wgARCAAUABQDAREAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADAMBAAIRAxEAPwD3+iiigD/2Q==');
+            background-size: cover;
+            background-position: center;
+            margin-bottom: 2rem;
+            animation: pulse 2s ease-in-out infinite;
+            box-shadow: 0 20px 40px var(--shadow);
+        }
+
+        .about-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            animation: fadeIn 1s ease 0.3s both;
+        }
+
+        /* Skills Section */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            width: 100%;
+            max-width: 1200px;
+            margin-top: 3rem;
+        }
+
+        .skill-card {
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 10px 30px var(--shadow);
+            transition: all 0.3s ease;
+            animation: slideInUp 0.8s ease;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px var(--shadow);
+        }
+
+        .skill-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Projects Section */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            width: 100%;
+            max-width: 1200px;
+            margin-top: 3rem;
+        }
+
+        .project-card {
+            background: var(--card-bg);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px var(--shadow);
+            transition: all 0.3s ease;
+            animation: slideInUp 0.8s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px var(--shadow);
+        }
+
+        .project-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .project-info {
+            padding: 2rem;
+        }
+
+        .project-title {
+            font-size: 1.3rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+
+        .project-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .project-link {
+            padding: 0.5rem 1rem;
+            background: var(--primary-color);
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+
+        .project-link:hover {
+            background: var(--secondary-color);
+            transform: translateY(-2px);
+        }
+
+        /* Game Section */
+        .game-section {
+            background: var(--card-bg);
+            border-radius: 20px;
+            padding: 3rem;
+            width: 100%;
+            max-width: 1200px;
+            text-align: center;
+            animation: slideInUp 0.8s ease;
+        }
+
+        .game-canvas {
+            width: 100%;
+            max-width: 600px;
+            height: auto;
+            border: 2px solid var(--primary-color);
+            border-radius: 15px;
+            box-shadow: 0 10px 30px var(--shadow);
+            background: #000;
+        }
+
+        /* Contact Section */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            width: 100%;
+            max-width: 1200px;
+            margin-top: 3rem;
+        }
+
+        .contact-card {
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 10px 30px var(--shadow);
+            transition: all 0.3s ease;
+            animation: slideInUp 0.8s ease;
+        }
+
+        .contact-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px var(--shadow);
+        }
+
+        .contact-icon {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .contact-card a {
+            color: var(--text-color);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .contact-card:hover a {
+            color: var(--primary-color);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--card-bg);
+            text-align: center;
+            padding: 2rem;
+            width: 100%;
+            animation: fadeIn 1s ease;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes bounceIn {
+            0% {
+                opacity: 0;
+                transform: scale(0.3);
+            }
+            50% {
+                opacity: 1;
+                transform: scale(1.1);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+        }
+
+        @keyframes glow {
+            from {
+                text-shadow: 0 0 10px rgba(99, 102, 241, 0.5);
+            }
+            to {
+                text-shadow: 0 0 20px rgba(99, 102, 241, 0.8);
+            }
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0px) rotate(0deg);
+            }
+            50% {
+                transform: translateY(-20px) rotate(180deg);
+            }
+        }
+
+        @keyframes pulseGlow {
+            0% {
+                opacity: 0.5;
+                transform: scale(0.9);
+            }
+            50% {
+                opacity: 1;
+                transform: scale(1.1);
+            }
+            100% {
+                opacity: 0.5;
+                transform: scale(0.9);
+            }
+        }
+
+        @keyframes rotateIn {
+            0% {
+                transform: rotate(0deg);
+            }
+            50% {
+                transform: rotate(5deg);
+            }
+            100% {
+                transform: rotate(0deg);
+            }
+        }
+
+        @keyframes fadePulse {
+            0% {
+                opacity: 0.7;
+            }
+            50% {
+                opacity: 1;
+            }
+            100% {
+                opacity: 0.7;
+            }
+        }
+
+        @keyframes scalePulse {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.1);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .profile-image {
+                width: 200px;
+                height: 200px;
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .game-canvas {
+                max-width: 100%;
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="cursor"></div>
+    <div class="cursor-follower"></div>
+
+    <header>
+        <nav>
+            <div class="logo">OF</div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#games">Games</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <button class="theme-toggle" onclick="toggleTheme()">
+                <i class="fas fa-moon" id="theme-icon"></i>
+            </button>
+        </nav>
+    </header>
+
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Otulaja Favour</h1>
+            <p>Passionate Frontend Developer & Creative Problem Solver</p>
+            <a href="#about" class="cta-button">Discover My Journey</a>
+        </div>
+    </section>
+
+    <section id="about" class="animate-on-scroll">
+        <h2 class="section-title">About Me</h2>
+        <div class="about-content">
+            <div class="profile-image"><img src="./img/WhatsApp Image 2025-05-13 at 11.07.33_0798c5eb.jpg" alt="" style="width: 100%; border-radius: 50%;" height="100%"></div>
+            <div class="about-text">
+                <p>Welcome to my digital realm! I'm Otulaja Favour, a passionate and ambitious frontend developer who embarked on this incredible coding journey in January 2025. What started as curiosity has transformed into an unstoppable passion for creating beautiful, functional web experiences.</p>
+                
+                <p>In just a few months, I've immersed myself in the world of web development, mastering HTML, CSS, and JavaScript while exploring the endless possibilities of modern web technologies. My journey has been nothing short of extraordinary – from building my first simple webpage to crafting complex, interactive applications that solve real-world problems.</p>
+                
+                <p>I believe in the power of code to transform ideas into reality. Each project I undertake is a stepping stone toward mastering the art of digital craftsmanship. My goal is not just to write code, but to create experiences that inspire, engage, and make a meaningful impact in people's lives.</p>
+                
+                <p>When I'm not coding, you'll find me exploring new technologies, contributing to open-source projects, and constantly learning to stay ahead in this ever-evolving field. I'm excited about the future and ready to turn your digital dreams into reality!</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills" class="animate-on-scroll">
+        <h2 class="section-title">My Tech Stack</h2>
+        <div class="skills-grid">
+            <div class="skill-card">
+                <div class="skill-icon"><i class="fab fa-html5"></i></div>
+                <h3>HTML5</h3>
+                <p>Semantic markup and modern web standards</p>
+            </div>
+            <div class="skill-card">
+                <div class="skill-icon"><i class="fab fa-css3-alt"></i></div>
+                <h3>CSS3</h3>
+                <p>Advanced styling, animations, and responsive design</p>
+            </div>
+            <div class="skill-card">
+                <div class="skill-icon"><i class="fab fa-js-square"></i></div>
+                <h3>JavaScript</h3>
+                <p>Modern ES6+ features and dynamic interactions</p>
+            </div>
+            <div class="skill-card">
+                <div class="skill-icon"><i class="fab fa-vuejs"></i></div>
+                <h3>Vue.js</h3>
+                <p>Progressive framework for building user interfaces</p>
+            </div>
+            <div class="skill-card">
+                <div class="skill-icon"><i class="fas fa-fire"></i></div>
+                <h3>Firebase</h3>
+                <p>Backend services and real-time databases</p>
+            </div>
+            <div class="skill-card">
+                <div class="skill-icon"><i class="fab fa-php"></i></div>
+                <h3>PHP</h3>
+                <p>Server-side scripting and web development</p>
+            </div>
+             <div class="skill-card">
+                <div class="skill-icon"><i class="fab fa-git"></i></div>
+                <h3>GIT</h3>
+                <p>Version control and collaborative development</p>
+            </div>
+             <div class="skill-card">
+                <div class="skill-icon"><i class="fab fa-github"></i></div>
+                <h3>GITHUB</h3>
+                <p>Platform for code hosting and collaboration</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="animate-on-scroll">
+        <h2 class="section-title">Featured Projects</h2>
+        <div class="projects-grid">
+            <div class="project-card">
+                <img src="./img/pr.png" alt="Space Tourism" class="project-image">
+                <div class="project-info">
+                    <h3 class="project-title">Javascript practice</h3>
+                    <p>For practice as a beginner in JavaScript </p>
+                    <div class="project-links">
+                        <a href="https://github.com/Otulaja-Favour/practice-for-beginners" class="project-link">
+                            <i class="fab fa-github"></i> Code
+                        </a>
+                        <a href="https://practice-for-beginners.onrender.com/" class="project-link">
+                            <i class="fas fa-external-link-alt"></i> Live Demo
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <img src="./img/vil.png" alt="Village Outreach" class="project-image">
+                <div class="project-info">
+                    <h3 class="project-title">Village Outreach</h3>
+                    <p>A community-focused platform designed to bridge the gap between urban resources and rural communities, promoting social impact.</p>
+                    <div class="project-links">
+                        <a href="https://github.com/Otulaja-Favour/Village-Outreach" class="project-link">
+                            <i class="fab fa-github"></i> Code
+                        </a>
+                        <a href="https://village-outreach.onrender.com/" class="project-link">
+                            <i class="fas fa-external-link-alt"></i> Live Demo
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <img src="./img/weather.png" alt="Weather App" class="project-image">
+                <div class="project-info">
+                    <h3 class="project-title">Weather App</h3>
+                    <p>A sleek weather application providing real-time weather data with beautiful animations and intuitive user interface.</p>
+                    <div class="project-links">
+                        <a href="https://github.com/Otulaja-Favour/weather-app" class="project-link">
+                            <i class="fab fa-github"></i> Code
+                        </a>
+                        <a href="https://weather-app-ywx2.onrender.com/" class="project-link">
+                            <i class="fas fa-external-link-alt"></i> Live Demo
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <img src="./img/Screenshot 2025-05-13 160444.png" alt="Quiz Game" class="project-image">
+                <div class="project-info">
+                    <h3 class="project-title">Quiz Game</h3>
+                    <p>An engaging quiz application with dynamic questions, scoring system, and interactive gameplay mechanics.</p>
+                    <div class="project-links">
+                        <a href="https://github.com/Otulaja-Favour/quize-game" class="project-link">
+                            <i class="fab fa-github"></i> Code
+                        </a>
+                        <a href="https://quize-game-6yl4.onrender.com/" class="project-link">
+                            <i class="fas fa-external-link-alt"></i> Live Demo
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <img src="./img/cart.png" alt="Shopping List" class="project-image">
+                <div class="project-info">
+                    <h3 class="project-title">Shopping List</h3>
+                    <p>A practical shopping list manager with CRUD functionality, local storage, and clean, minimalist design.</p>
+                    <div class="project-links">
+                        <a href="https://github.com/Otulaja-Favour/shopping-list" class="project-link">
+                            <i class="fab fa-github"></i> Code
+                        </a>
+                        <a href="https://shopping-list-xi7f.onrender.com/" class="project-link">
+                            <i class="fas fa-external-link-alt"></i> Live Demo
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="project-card">
+                <img src="./img/spa.png" alt="spacetourism" class="project-image">
+                <div class="project-info">
+                    <h3 class="project-title">Space tourism</h3>
+                    <p>An immersive space tourism website featuring stunning visuals and interactive elements that transport users on a cosmic journey.</p>
+                    <div class="project-links">
+                        <a href="https://github.com/Otulaja-Favour/space-tourism" class="project-link">
+                            <i class="fab fa-github"></i> Code
+                        </a>
+                        <a href="https://space-tourism-ru87.onrender.com/" class="project-link">
+                            <i class="fas fa-external-link-alt"></i> Live Demo
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <img src="./img/lib.png" alt="Library Management" class="project-image">
+                <div class="project-info">
+                    <h3 class="project-title">Library Management</h3>
+                    <p>A comprehensive library management system for Sam Akinbode Global with book tracking and user management.</p>
+                    <div class="project-links">
+                        <a href="https://github.com/Otulaja-Favour/SamAkinbodeGlobal" class="project-link">
+                            <i class="fab fa-github"></i> Code
+                        </a>
+                        <a href="https://sam-akinbode-global.vercel.app/" class="project-link">
+                            <i class="fas fa-external-link-alt"></i> Live Demo
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="games" class="animate-on-scroll">
+        <h2 class="section-title">Take a Break - Play a Game!</h2>
+        <div class="game-section">
+            <h3>Snake Game</h3>
+            <p>Enjoy this classic Snake game! Use arrow keys to control the snake and eat the food to grow.</p>
+            <canvas id="gameCanvas" class="game-canvas" width="600" height="400"></canvas>
+            <p id="score">Score: 0</p>
+        </div>
+    </section>
+
+    <section id="contact" class="animate-on-scroll">
+        <h2 class="section-title">Let's Connect</h2>
+        <div class="contact-grid">
+            <div class="contact-card">
+                <div class="contact-icon"><i class="fab fa-whatsapp"></i></div>
+                <h3>WhatsApp</h3>
+                <a href="https://wa.me/2349151596279">09151596279</a>
+            </div>
+            <div class="contact-card">
+                <div class="contact-icon"><i class="fas fa-envelope"></i></div>
+                <h3>Email</h3>
+                <a href="mailto:otulqajafavour14@gmial.com">otulqajafavour14@gmial.com</a>
+            </div>
+            <div class="contact-card">
+                <div class="contact-icon"><i class="fab fa-github"></i></div>
+                <h3>GitHub</h3>
+                <a href="https://github.com/Otulaja-Favour/" target="_blank">Otulaja-Favour</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2025 Otulaja Favour. Crafted with ❤️ and lots of ☕</p>
+    </footer>
+
+    <script>
+        // Custom Cursor
+        const cursor = document.querySelector('.cursor');
+        const cursorFollower = document.querySelector('.cursor-follower');
+
+        document.addEventListener('mousemove', (e) => {
+            cursor.style.left = e.clientX + 'px';
+            cursor.style.top = e.clientY + 'px';
+            
+            setTimeout(() => {
+                cursorFollower.style.left = e.clientX - 20 + 'px';
+                cursorFollower.style.top = e.clientY - 20 + 'px';
+            }, 100);
+        });
+
+        // Cursor hover effects
+        const hoverElements = document.querySelectorAll('a, button, .project-card, .skill-card, .contact-card');
+        hoverElements.forEach(el => {
+            el.addEventListener('mouseenter', () => {
+                cursor.style.transform = 'scale(1.5)';
+                cursorFollower.style.transform = 'scale(1.5)';
+            });
+            el.addEventListener('mouseleave', () => {
+                cursor.style.transform = 'scale(1)';
+                cursorFollower.style.transform = 'scale(1)';
+            });
+        });
+
+        // Theme Toggle
+        function toggleTheme() {
+            const body = document.body;
+            const themeIcon = document.getElementById('theme-icon');
+            
+            if (body.getAttribute('data-theme') === 'dark') {
+                body.removeAttribute('data-theme');
+                themeIcon.className = 'fas fa-moon';
+            } else {
+                body.setAttribute('data-theme', 'dark');
+                themeIcon.className = 'fas fa-sun';
+            }
+        }
+
+        // Smooth Scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Scroll Animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animated');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all elements with animate-on-scroll class
+        document.querySelectorAll('.animate-on-scroll').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Parallax effect for hero section
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const hero = document.querySelector('.hero');
+            if (hero) {
+                hero.style.transform = `translateY(${scrolled * 0.5}px)`;
+            }
+        });
+
+        // Dynamic typing effect for hero text
+        function typeWriter(element, text, speed = 100) {
+            let i = 0;
+            element.innerHTML = '';
+            function type() {
+                if (i < text.length) {
+                    element.innerHTML += text.charAt(i);
+                    i++;
+                    setTimeout(type, speed);
+                }
+            }
+            type();
+        }
+
+        // Initialize typing effect on page load
+        window.addEventListener('load', () => {
+            const heroTitle = document.querySelector('.hero h1');
+            const heroSubtitle = document.querySelector('.hero p');
+            
+            if (heroTitle && heroSubtitle) {
+                setTimeout(() => {
+                    typeWriter(heroTitle, 'Otulaja Favour', 150);
+                }, 500);
+                
+                setTimeout(() => {
+                    typeWriter(heroSubtitle, 'Passionate Frontend Developer & Creative Problem Solver', 80);
+                }, 2500);
+            }
+        });
+
+        // Add floating animation to skill cards
+        const skillCards = document.querySelectorAll('.skill-card');
+        skillCards.forEach((card, index) => {
+            card.style.animationDelay = `${index * 0.2}s`;
+            card.addEventListener('mouseenter', () => {
+                card.style.transform = 'translateY(-15px) rotateY(10deg)';
+            });
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'translateY(0) rotateY(0)';
+            });
+        });
+
+        // Project cards hover effect
+        const projectCards = document.querySelectorAll('.project-card');
+        projectCards.forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                card.style.transform = 'translateY(-10px) scale(1.02)';
+            });
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'translateY(0) scale(1)';
+            });
+        });
+
+        // Contact cards animation
+        const contactCards = document.querySelectorAll('.contact-card');
+        contactCards.forEach((card, index) => {
+            card.style.animationDelay = `${index * 0.3}s`;
+        });
+
+        // Navbar background change on scroll
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(255, 255, 255, 0.95)';
+                if (document.body.getAttribute('data-theme') === 'dark') {
+                    header.style.background = 'rgba(15, 23, 42, 0.95)';
+                }
+            } else {
+                header.style.background = 'rgba(255, 255, 255, 0.1)';
+                if (document.body.getAttribute('data-theme') === 'dark') {
+                    header.style.background = 'rgba(15, 23, 42, 0.8)';
+                }
+            }
+        });
+
+        // Add click effect to buttons
+        const buttons = document.querySelectorAll('button, .cta-button, .project-link');
+        buttons.forEach(button => {
+            button.addEventListener('click', function(e) {
+                let ripple = document.createElement('span');
+                ripple.classList.add('ripple');
+                this.appendChild(ripple);
+                
+                let x = e.clientX - e.target.offsetLeft;
+                let y = e.clientY - e.target.offsetTop;
+                
+                ripple.style.left = `${x}px`;
+                ripple.style.top = `${y}px`;
+                
+                setTimeout(() => {
+                    ripple.remove();
+                }, 300);
+            });
+        });
+
+        // Easter egg: Konami code
+        let konamiCode = [];
+        const konamiSequence = ['ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight', 'KeyB', 'KeyA'];
+        
+        document.addEventListener('keydown', (e) => {
+            konamiCode.push(e.code);
+            if (konamiCode.length > konamiSequence.length) {
+                konamiCode.shift();
+            }
+            
+            if (JSON.stringify(konamiCode) === JSON.stringify(konamiSequence)) {
+                // Easter egg activated!
+                document.body.style.animation = 'rainbow 2s ease-in-out';
+                setTimeout(() => {
+                    document.body.style.animation = '';
+                }, 2000);
+                
+                // Show a fun message
+                const message = document.createElement('div');
+                message.innerHTML = '🎉 You found the secret! 🚀';
+                message.style.cssText = `
+                    position: fixed;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                    background: linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1, #96ceb4);
+                    color: white;
+                    padding: 2rem;
+                    border-radius: 20px;
+                    font-size: 2rem;
+                    z-index: 10000;
+                    animation: bounceIn 0.5s ease;
+                `;
+                document.body.appendChild(message);
+                
+                setTimeout(() => {
+                    message.remove();
+                }, 3000);
+                
+                konamiCode = [];
+            }
+        });
+
+        // Add rainbow animation for easter egg
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes rainbow {
+                0% { filter: hue-rotate(0deg); }
+                25% { filter: hue-rotate(90deg); }
+                50% { filter: hue-rotate(180deg); }
+                75% { filter: hue-rotate(270deg); }
+                100% { filter: hue-rotate(360deg); }
+            }
+            
+            .ripple {
+                position: absolute;
+                border-radius: 50%;
+                background: rgba(255, 255, 255, 0.6);
+                transform: scale(0);
+                animation: ripple-animation 0.3s linear;
+                pointer-events: none;
+            }
+            
+            @keyframes ripple-animation {
+                to {
+                    transform: scale(4);
+                    opacity: 0;
+                }
+            }
+        `;
+        document.head.appendChild(style);
+
+        // Performance optimization: Reduce animations on mobile
+        if (window.innerWidth <= 768) {
+            document.querySelectorAll('.animate-on-scroll').forEach(el => {
+                el.style.animation = 'fadeIn 0.5s ease';
+            });
+        }
+
+        // Add loading screen
+        window.addEventListener('load', () => {
+            const loader = document.createElement('div');
+            loader.innerHTML = `
+                <div style="
+                    position: fixed;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    z-index: 10000;
+                    transition: opacity 0.5s ease;
+                ">
+                    <div style="
+                        text-align: center;
+                        color: white;
+                    ">
+                        <div style="
+                            width: 50px;
+                            height: 50px;
+                            border: 3px solid rgba(255,255,255,0.3);
+                            border-top: 3px solid white;
+                            border-radius: 50%;
+                            animation: spin 1s linear infinite;
+                            margin: 0 auto 20px;
+                        "></div>
+                        <h2>Loading Portfolio...</h2>
+                    </div>
+                </div>
+            `;
+            
+            const spinStyle = document.createElement('style');
+            spinStyle.textContent = `
+                @keyframes spin {
+                    0% { transform: rotate(0deg); }
+                    100% { transform: rotate(360deg); }
+                }
+            `;
+            document.head.appendChild(spinStyle);
+            
+            document.body.appendChild(loader);
+            
+            setTimeout(() => {
+                loader.style.opacity = '0';
+                setTimeout(() => {
+                    loader.remove();
+                }, 500);
+            }, 1500);
+        });
+
+        // Snake Game Logic
+        const canvas = document.getElementById('gameCanvas');
+        const ctx = canvas.getContext('2d');
+        const scoreElement = document.getElementById('score');
+
+        const gridSize = 20;
+        const tileCount = canvas.width / gridSize;
+
+        let snake = [
+            { x: 10, y: 10 },
+        ];
+        let food = {
+            x: Math.floor(Math.random() * tileCount),
+            y: Math.floor(Math.random() * tileCount),
+        };
+        let dx = 0;
+        let dy = 0;
+        let score = 0;
+        let gameInterval;
+
+        document.addEventListener('keydown', changeDirection);
+
+        function changeDirection(event) {
+            const LEFT_KEY = 37;
+            const RIGHT_KEY = 39;
+            const UP_KEY = 38;
+            const DOWN_KEY = 40;
+
+            const keyPressed = event.keyCode;
+            const goingUp = dy === -1;
+            const goingDown = dy === 1;
+            const goingRight = dx === 1;
+            const goingLeft = dx === -1;
+
+            if (keyPressed === LEFT_KEY && !goingRight) {
+                dx = -1;
+                dy = 0;
+            }
+            if (keyPressed === UP_KEY && !goingDown) {
+                dx = 0;
+                dy = -1;
+            }
+            if (keyPressed === RIGHT_KEY && !goingLeft) {
+                dx = 1;
+                dy = 0;
+            }
+            if (keyPressed === DOWN_KEY && !goingUp) {
+                dx = 0;
+                dy = 1;
+            }
+        }
+
+        function drawGame() {
+            // Move snake
+            const head = { x: snake[0].x + dx, y: snake[0].y + dy };
+            snake.unshift(head);
+
+            // Check if snake ate food
+            if (head.x === food.x && head.y === food.y) {
+                score += 10;
+                scoreElement.textContent = `Score: ${score}`;
+                food = {
+                    x: Math.floor(Math.random() * tileCount),
+                    y: Math.floor(Math.random() * tileCount),
+                };
+            } else {
+                snake.pop();
+            }
+
+            // Check collision with walls
+            if (head.x < 0 || head.x >= tileCount || head.y < 0 || head.y >= tileCount) {
+                gameOver();
+                return;
+            }
+
+            // Check collision with self
+            for (let i = 1; i < snake.length; i++) {
+                if (head.x === snake[i].x && head.y === snake[i].y) {
+                    gameOver();
+                    return;
+                }
+            }
+
+            // Draw
+            ctx.fillStyle = 'black';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+            ctx.fillStyle = 'lime';
+            snake.forEach(segment => {
+                ctx.fillRect(segment.x * gridSize, segment.y * gridSize, gridSize - 2, gridSize - 2);
+            });
+
+            ctx.fillStyle = 'red';
+            ctx.fillRect(food.x * gridSize, food.y * gridSize, gridSize - 2, gridSize - 2);
+        }
+
+        function gameOver() {
+            clearInterval(gameInterval);
+            alert(`Game Over! Score: ${score}`);
+            snake = [{ x: 10, y: 10 }];
+            dx = 0;
+            dy = 0;
+            score = 0;
+            scoreElement.textContent = `Score: ${score}`;
+            gameInterval = setInterval(drawGame, 100);
+        }
+
+        gameInterval = setInterval(drawGame, 100);
+    </script>
+</body>
+</html>
